@@ -1,11 +1,9 @@
-import { Button } from '@/components/ui/button';
 import localFont from 'next/font/local'
 import { cn } from '@/lib/utils';
-import { AiOutlineCaretRight } from "react-icons/ai";
-import LinkForm from '../../components/LinkForm';
+import LinkForm from '../../../components/LinkForm';
 
 const headingFont = localFont({
-  src: '../../public/fonts/font.woff2'
+  src: '../../../public/fonts/font.woff2'
 })
 
 export default function Home() {

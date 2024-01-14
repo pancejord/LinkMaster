@@ -3,7 +3,7 @@ import { AiOutlineCaretRight } from "react-icons/ai";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
-
+import {redirect} from 'next/navigation'
 
 const LinkForm = () => {
 
@@ -12,16 +12,18 @@ const LinkForm = () => {
      const handleSubmit = async (ev) => {
         ev.preventDefault()
         if(username.length > 0) {
-            window.localStorage.setItem('storedUsername', username)
+        window.localStorage.setItem('storedUsername', username)
         await signIn('google')
     }
     }
 
     useEffect(() => {
-        if ('localStorage' in window && window.localStorage.getItem('desiredUsername') {
-            const username = window.localStorage.getItem('desiredUsername')
-        })
-    })
+        if ('localStorage' in window && window.localStorage.getItem('storedUsername')) {
+            const username = window.localStorage.getItem('storedUsername')
+            window.localStorage.removeItem('storedUsername')
+            redirect('/account?username=' + username)
+        }
+    }, [])
 
 
 

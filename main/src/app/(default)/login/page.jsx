@@ -5,15 +5,17 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import {signIn} from "next-auth/react"
+import {signIn, useSession} from "next-auth/react"
 
-import Divider from '../../../components/Divider';
+import Divider from '../../../../components/Divider';
 import Google from 'next-auth/providers/google';
 
 
 const headingFont = localFont({
-  src: '../../../public/fonts/font.woff2'
+  src: '../../../../public/fonts/font.woff2'
 })
+
+
 
 const page = () => {
   return (
